@@ -19,6 +19,17 @@ class Data {
     this.ano = 0000,
   ]); //construtor opcional com valor default
 
+  Data.com({
+    this.dia = 0,
+    this.mes = 0,
+    this.ano = 0,
+  }); //construtor nomeado com valor default
+
+  Data.ultimoDiaDoAno(this.ano) {
+    dia = 31;
+    mes = 12;
+  }
+
   String obterFormatada() {
     return "$dia/$mes/$ano";
   }
@@ -55,4 +66,14 @@ main() {
   print(new Data(31));
   print(new Data(31, 12));
   print(new Data(31, 12, 2020));
+
+  print('\nParametros opcionais\n');
+
+  print(Data.com(ano: 2022));
+  print(Data.com(dia: 30));
+  print(Data.com(mes: 12));
+  print(Data.com(dia: 30, mes: 12));
+  print(Data.com(dia: 31, mes: 12, ano: 2020));
+
+  print(Data.ultimoDiaDoAno(2024));
 }
